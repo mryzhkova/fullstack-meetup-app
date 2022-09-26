@@ -1,0 +1,80 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "import", "react-hooks"],
+  "rules": {
+    "operator-linebreak": ["warn"],
+    "no-unused-vars": "warn",
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "object-curly-newline": "off",
+    "semi": "error",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "comma-dangle": "off",
+    "no-param-reassign": "off",
+    "consistent-return": "off",
+    "import/prefer-default-export": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "no-confusing-arrow": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  }
+}

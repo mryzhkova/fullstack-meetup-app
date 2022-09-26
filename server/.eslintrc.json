@@ -1,0 +1,80 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:import/recommended",
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "operator-linebreak": "warn",
+    "no-console": "off",
+    "consistent-return": "off",
+    "comma-dangle": "off",
+    "object-curly-newline": "off",
+    "import/prefer-default-export": "off",
+    "radix": ["error", "as-needed"],
+    "no-underscore-dangle": "off",
+    "node/no-unsupported-features/es-syntax": ["error", {
+      "version": ">=12.13.0",
+      "ignores": ["modules"]
+    }],
+    "node/exports-style": ["error", "exports"],
+    "node/file-extension-in-import": ["error", "always"],
+    "node/prefer-global/buffer": ["error", "always"],
+    "node/prefer-global/console": ["error", "always"],
+    "node/prefer-global/process": ["error", "always"],
+    "node/prefer-global/url-search-params": ["error", "always"],
+    "node/prefer-global/url": ["error", "always"],
+    "node/prefer-promises/dns": "error",
+    "node/prefer-promises/fs": "error",
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "import/extensions": [
+      "error",
+      {
+        "js": "ignorePackages"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["#", "./src"]
+        ],
+        "extensions": [".jsx", ".js"]
+      }
+    }
+  }
+}

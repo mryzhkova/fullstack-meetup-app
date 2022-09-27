@@ -5,11 +5,11 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 
 import { ALERT_CONTENT } from '@/constants/alertsContent';
+import { AUTH_FIELDS } from '@/constants/formFields';
 import { authValidationSchema } from '@/helpers/formValidation';
 import { openAlert } from '@/store/slices/alertSlice';
 
 import { ButtonsWrapper, CustomButton, GoogleButton } from './styled';
-import { AUTH_FIELDS } from '@/constants/formFields';
 
 
 const AuthForm = ({ submitData, btnText, linkText }) => {

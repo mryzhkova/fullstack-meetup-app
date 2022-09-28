@@ -12,6 +12,7 @@ import {
   fetchCurrentMeetup
 } from '@/store/actions/meetupActions';
 import { openAlert } from '@/store/slices/alertSlice';
+import { deleteCurrentMeetup } from '@/store/slices/meetupSlice';
 
 import {
   ButtonsWrapper,
@@ -31,6 +32,7 @@ const FullMeetup = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(deleteCurrentMeetup());
     dispatch(fetchCurrentMeetup(id));
   }, []);
 

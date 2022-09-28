@@ -30,6 +30,16 @@ export const meetupSlice = createSlice({
     },
     setCurrentMeetup(state, { payload }) {
       state.currentMeetup = payload;
+    },
+    deleteCurrentMeetup(state) {
+      state.currentMeetup = {
+        id: null,
+        title: '',
+        desc: '',
+        tags: [],
+        date: '',
+        location: ''
+      };
     }
   },
   extraReducers: {
@@ -55,6 +65,6 @@ export const meetupSlice = createSlice({
   }
 });
 
-export const { setRequestTime, setCurrentMeetup } = meetupSlice.actions;
+export const { setRequestTime, setCurrentMeetup, deleteCurrentMeetup } = meetupSlice.actions;
 
 export default meetupSlice.reducer;

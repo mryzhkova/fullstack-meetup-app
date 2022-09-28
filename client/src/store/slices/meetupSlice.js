@@ -18,7 +18,8 @@ const initialState = {
     date: '',
     location: ''
   },
-  reqTime: 0
+  reqTime: 0,
+  isLoad: false
 };
 
 export const meetupSlice = createSlice({
@@ -30,16 +31,6 @@ export const meetupSlice = createSlice({
     },
     setCurrentMeetup(state, { payload }) {
       state.currentMeetup = payload;
-    },
-    deleteCurrentMeetup(state) {
-      state.currentMeetup = {
-        id: null,
-        title: '',
-        desc: '',
-        tags: [],
-        date: '',
-        location: ''
-      };
     }
   },
   extraReducers: {
@@ -47,7 +38,11 @@ export const meetupSlice = createSlice({
       state.meetups = payload;
     },
     [fetchCurrentMeetup.fulfilled]: (state, { payload }) => {
+      state.isLoad = false;
       state.currentMeetup = payload;
+    },
+    [fetchCurrentMeetup.pending]: state => {
+      state.isLoad = true;
     },
     [fetchCreateMeetup.fulfilled]: (state, { payload }) => {
       state.meetups.push(payload);
@@ -65,6 +60,6 @@ export const meetupSlice = createSlice({
   }
 });
 
-export const { setRequestTime, setCurrentMeetup, deleteCurrentMeetup } = meetupSlice.actions;
+export const { setRequestTime, setCurrentMeetup } = meetupSlice.actions;
 
 export default meetupSlice.reducer;

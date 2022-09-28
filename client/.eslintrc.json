@@ -11,7 +11,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "import", "react-hooks"],
+  "plugins": ["react", "react-hooks", "import"],
   "rules": {
     "operator-linebreak": ["warn"],
     "no-unused-vars": "warn",

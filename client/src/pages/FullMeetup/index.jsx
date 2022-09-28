@@ -12,7 +12,6 @@ import {
   fetchCurrentMeetup
 } from '@/store/actions/meetupActions';
 import { openAlert } from '@/store/slices/alertSlice';
-import { deleteCurrentMeetup } from '@/store/slices/meetupSlice';
 
 import {
   ButtonsWrapper,
@@ -27,12 +26,11 @@ const FullMeetup = () => {
   const dispatch = useDispatch();
 
   const { token } = useSelector(state => state.authState);
-  const { currentMeetup } = useSelector(state => state.meetupState);
+  const { currentMeetup, isLoad } = useSelector(state => state.meetupState);
 
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(deleteCurrentMeetup());
     dispatch(fetchCurrentMeetup(id));
   }, []);
 
@@ -43,6 +41,8 @@ const FullMeetup = () => {
   const handleVisit = () => {
     dispatch(fetchAddVisitor(id));
   };
+
+  if (isLoad) return null;
 
   if (!token) return <UnauthorizPage />;
 
